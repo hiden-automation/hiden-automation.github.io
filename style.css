@@ -1328,3 +1328,73 @@ ul {
     grid-template-columns: 1fr;
   }
 }
+
+/* Garante que os ícones do card 'Muito mais' fiquem pink */
+.solution-card.pink-theme .solution-features i,
+.solution-card.pink-theme .solution-features svg {
+  color: #ec4899 !important; /* Ajuste o tom de rosa se estiver usando uma variável como var(--pink) */
+  stroke: #ec4899 !important;
+}
+
+/* No Mobile */
+@media (max-width: 767px) {
+  .solutions-clone {
+    display: none !important;
+  }
+}
+
+/* No PC: Carrossel com janela aberta e fade bem estreito nas bordas */
+@media (min-width: 768px) {
+  .solutions-marquee-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+    
+    /* Fade bem estreito: 0% a 3% no início e 97% a 100% no fim */
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 3%,
+      black 97%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 3%,
+      black 97%,
+      transparent 100%
+    );
+  }
+
+  .solutions-track {
+    display: flex;
+    width: max-content;
+    gap: 24px;
+    animation: scrollSolutions 35s linear infinite;
+  }
+
+  .solutions-track:hover {
+    animation-play-state: paused;
+  }
+
+  .solutions-grid {
+    display: flex !important;
+    gap: 24px;
+  }
+
+  .solutions-grid .solution-card {
+    flex: 0 0 320px;
+    width: 320px;
+  }
+
+  @keyframes scrollSolutions {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-50% - 12px));
+    }
+  }
+}
