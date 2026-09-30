@@ -67,3 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+document.querySelectorAll('a[href*="wa.me"]').forEach(function (link) {
+  link.addEventListener('click', function () {
+    gtag('event', 'conversion', {
+      send_to: 'AW-18423621401/4ID9COzo_oodEJnOiNFE',
+      value: 1.0,
+      currency: 'BRL',
+      transport_type: 'beacon'
+    });
+  });
+});
